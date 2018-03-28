@@ -624,6 +624,7 @@ class CLI {
         this.log('  $ unlock [passphrase] [timeout?]: Unlock wallet.');
         this.log('  $ resend: Resend pending transactions.');
         this.log('  $ rescan [height]: Rescan for transactions.');
+        this.log('  $ admin [command]: Admin commands');
         this.log('Other Options:');
         this.log('  --passphrase [passphrase]: For signing/account-creation.');
         this.log('  --account [account-name]: Account name.');
@@ -634,7 +635,7 @@ class CLI {
   async open() {
     switch (this.argv[0]) {
       case 'wallets':
-      case 'mkwallet':
+      case 'create':
       case 'resend':
       case 'backup':
       case 'rpc':
@@ -648,7 +649,7 @@ class CLI {
         case 'wallets':
           await this.getWallets();
           break;
-        case 'mkwallet':
+        case 'create':
           await this.createWallet();
           break;
         case 'resend':
@@ -664,7 +665,7 @@ class CLI {
           this.log('Unrecognized command.');
           this.log('Commands:');
           this.log('  $ wallets: List all wallets.');
-          this.log('  $ wallet create [id]: Create wallet.');
+          this.log('  $ create [id]: Create wallet.');
           this.log('  $ resend: Resend pending transactions.');
           this.log('  $ backup [path]: Backup the wallet db.');
           this.log('  $ rpc [command] [args]: Execute RPC command.');
@@ -673,7 +674,7 @@ class CLI {
       return;
     }
 
-    return this.handleWallet();
+    this.handleWallet();
   }
 
   async destroy() {
