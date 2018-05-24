@@ -153,6 +153,7 @@ class CLI {
     const name = this.config.str([0, 'name']);
 
     const options = {
+      passphrase: this.config.str('passphrase'),
       type: this.config.str('type'),
       m: this.config.uint('m'),
       n: this.config.uint('n'),
