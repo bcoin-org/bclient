@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "bcfg": "~0.0.2",
-    "bcurl": "~0.0.2"
+    "bcurl": "bcoin-org/bcurl#headers"
   },
   "devDependencies": {
     "babelify": "^8.0.0",
