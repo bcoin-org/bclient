@@ -77,8 +77,8 @@ class CLI {
       n: this.config.uint('n'),
       witness: this.config.bool('witness'),
       passphrase: this.config.str('passphrase'),
-      watchOnly: this.config.has('key') ? true : this.config.bool('watch'),
-      accountKey: this.config.str('key')
+      watchOnly: this.config.has('key') ? true : this.config.bool('watchOnly'),
+      accountKey: this.config.str('accountKey')
     };
 
     const wallet = await this.client.createWallet(id, options);
