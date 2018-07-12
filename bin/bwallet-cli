@@ -77,8 +77,10 @@ class CLI {
       n: this.config.uint('n'),
       witness: this.config.bool('witness'),
       passphrase: this.config.str('passphrase'),
-      watchOnly: this.config.has('key') ? true : this.config.bool('watchOnly'),
-      accountKey: this.config.str('accountKey')
+      watchOnly: !this.config.has('account-key')
+        ? this.config.bool('watch-only')
+        : true,
+      accountKey: this.config.str('account-key')
     };
 
     const wallet = await this.client.createWallet(id, options);
@@ -158,7 +160,7 @@ class CLI {
       m: this.config.uint('m'),
       n: this.config.uint('n'),
       witness: this.config.bool('witness'),
-      accountKey: this.config.str('key')
+      accountKey: this.config.str('account-key')
     };
 
     const account = await this.wallet.createAccount(name, options);
@@ -625,6 +627,7 @@ class CLI {
         this.log('  $ unlock [passphrase] [timeout?]: Unlock wallet.');
         this.log('  $ resend: Resend pending transactions.');
         this.log('  $ rescan [height]: Rescan for transactions.');
+        this.log('  $ admin [command]: Admin commands');
         this.log('Other Options:');
         this.log('  --passphrase [passphrase]: For signing/account-creation.');
         this.log('  --account [account-name]: Account name.');
@@ -635,6 +638,7 @@ class CLI {
   async open() {
     switch (this.argv[0]) {
       case 'wallets':
+      case 'create':
       case 'mkwallet':
       case 'resend':
       case 'backup':
@@ -649,6 +653,7 @@ class CLI {
         case 'wallets':
           await this.getWallets();
           break;
+        case 'create':
         case 'mkwallet':
           await this.createWallet();
           break;
@@ -665,7 +670,7 @@ class CLI {
           this.log('Unrecognized command.');
           this.log('Commands:');
           this.log('  $ wallets: List all wallets.');
-          this.log('  $ wallet create [id]: Create wallet.');
+          this.log('  $ create [id]: Create wallet.');
           this.log('  $ resend: Resend pending transactions.');
           this.log('  $ backup [path]: Backup the wallet db.');
           this.log('  $ rpc [command] [args]: Execute RPC command.');
