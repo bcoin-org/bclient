@@ -1,6 +1,6 @@
 {
   "name": "bclient",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Bcoin node and wallet client",
   "keywords": [
     "http",
