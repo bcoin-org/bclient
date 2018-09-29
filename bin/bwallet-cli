@@ -628,8 +628,8 @@ class CLI {
         this.log('  $ resend: Resend pending transactions.');
         this.log('  $ rescan [height]: Rescan for transactions.');
         this.log('  $ admin [command]: Admin commands');
-        this.log('  $ rpc [command] [args]: Execute RPC command.' + 
-          ' (`bwallet-cli rpc help` for more)');
+        this.log('  $ rpc [command] [args]: Execute RPC command.'
+          + ' (`bwallet-cli rpc help` for more)');
         this.log('Other Options:');
         this.log('  --passphrase [passphrase]: For signing/account-creation.');
         this.log('  --account [account-name]: Account name.');
@@ -675,8 +675,8 @@ class CLI {
           this.log('  $ create [id]: Create wallet.');
           this.log('  $ resend: Resend pending transactions.');
           this.log('  $ backup [path]: Backup the wallet db.');
-          this.log('  $ rpc [command] [args]: Execute RPC command.' + 
-            ' (`bwallet-cli rpc help` for more)');
+          this.log('  $ rpc [command] [args]: Execute RPC command.'
+            + ' (`bwallet-cli rpc help` for more)');
           break;
       }
       return;
