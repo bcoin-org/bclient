@@ -1,6 +1,6 @@
 {
   "name": "bclient",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Bcoin node and wallet client",
   "keywords": [
     "http",
@@ -25,9 +25,9 @@
     "bwallet-cli": "./bin/bwallet-cli"
   },
   "dependencies": {
-    "bcfg": "~0.1.5",
-    "bcurl": "~0.1.5",
-    "bsert": "~0.0.9"
+    "bcfg": "~0.1.6",
+    "bcurl": "~0.1.6",
+    "bsert": "~0.0.10"
   },
   "devDependencies": {
     "bmocha": "^2.1.0"
